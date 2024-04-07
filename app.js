@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const config = require('./config');
+const config = require('./src/config');
 
 const app = express();
 
@@ -11,15 +11,15 @@ const app = express();
 mongoose.connect(config.connectionString);
 
 // Carrega os Models
-const Product = require('./models/product');
-const Customer = require('./models/customer');
-const Order = require('./models/order');
+const Product = require('./src/models/product');
+const Customer = require('./src/models/customer');
+const Order = require('./src/models/order');
 
 // Carrega as Rotas
-const indexRoute = require('./routes/index-route');
-const productRoute = require('./routes/product-route');
-const customerRoute = require('./routes/customer-route');
-const orderRoute = require('./routes/order-route');
+const indexRoute = require('./src/routes/index-route');
+const productRoute = require('./src/routes/product-route');
+const customerRoute = require('./src/routes/customer-route');
+const orderRoute = require('./src/routes/order-route');
 
 // Estabelece como padrão a converção do JSON nos controllers com o limite de 5 megabyte
 app.use(bodyParser.json({
